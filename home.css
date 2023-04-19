@@ -11,14 +11,13 @@ body {
 }
 
 header {
-    background-color: rgb(109, 109, 231);
+    background-color: #6d6de7;
     padding: 1.5rem;
 }
 
 h1 {
     font-size: 4rem;
     text-align: center;
-    /* color: #d3d3d3; */
 }
 
 h2 {
@@ -28,19 +27,21 @@ h2 {
 
 /* Utilities */
 
-/* .landing-container {
+.container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    width: 100vw;
-    height: 25vh;
-    max-width: 75%;
-    max-height: 50%;
-    margin-top: 20rem;
-    border-style: solid;
-    border-radius: 2rem;
-} */
+    border: solid;
+    border-style: double;
+    margin: 2rem;
+    padding: 2rem;
+    width: 25%;
+    font-size: 4rem;
+    background-color: #a1a1e0;
+}
+
+.container #city {
+    font-size: 4rem;
+    padding: .5rem;
+}
 
 .flex-column {
     display: flex;
@@ -87,4 +88,8 @@ h2 {
 #searchBtn:active {
     transform: translateY(.1rem);
     transition: transform 150ms;
+}
+
+#today-cond-text {
+    font-size: 3.25rem;
 }
