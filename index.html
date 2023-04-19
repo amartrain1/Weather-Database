@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1>Weather Dashboard</h1>
+        <br>
+        <br>
+        <h2 id="current-day">Day, Month Day#</h2>
+        <h2 id="current-time">Time Loading...</h2>
+    </header>
+        <form class="flex-center">
+            <label id="form-city" 
+            for="city">Search by City:</label>
+            <input
+            type="text" 
+            id="city-input" 
+            name="city" 
+            placeholder="City">
+            <button 
+            id="searchBtn" 
+            type="submit"
+            >Search</button>
+        </form>
+</body>
+<script src="script.js"></script>
+</html>
