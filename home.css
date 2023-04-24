@@ -22,7 +22,10 @@ h1 {
 
 h2 {
     font-size: 3.5rem;
-    text-align: center;
+}
+
+h3 {
+    font-size: 2rem;
 }
 
 /* Utilities */
@@ -59,6 +62,10 @@ h2 {
     flex-direction: row;
 }
 
+.text-center {
+    text-align: center;
+}
+
 /* Classes */
 
 .small-container {
@@ -73,6 +80,19 @@ h2 {
     max-width: 30rem;
 }
 
+.history-container {
+    display: flex;
+    justify-content: center;
+}
+
+#search-results h3 {
+    font-weight: 100;
+    background-color: #ffffff;
+    margin-block: .5rem;
+    padding: .5rem;
+    border: double;
+}
+
 /* ID's */
 
 #form-city {
@@ -85,7 +105,7 @@ h2 {
 
 #city-input {
     font-size: 1.75rem;
-    width: 70rem;
+    width: 50rem;
     padding: .5rem;
     margin-top: .25rem;
     border-color: #272727;
@@ -112,3 +132,8 @@ h2 {
     transform: translateY(.1rem);
     transition: transform 150ms;
 }
+
+#search-results {
+    width: 50rem;
+}
+

@@ -15,7 +15,14 @@ searchBtn.addEventListener('click', function (event) {
     localStorage.setItem('searchedCities', JSON.stringify(searchedCities));
     var cityText = document.getElementById('city');
     cityText.textContent = cityValue;
-
+    
+    // render search results
+    var searchHistory = document.getElementById('search-results');
+    var historyEl = document.createElement('h3');
+    historyEl.classList.add('history');
+    searchHistory.appendChild(historyEl);
+    historyEl.textContent = cityValue;
+    
     // call geocoding api
     fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityValue}&appid=${apiKey}`)
         // .then(response => response.json())
@@ -95,7 +102,6 @@ searchBtn.addEventListener('click', function (event) {
                         var estWind = document.getElementById(`wind-day-${i}`);
                         estWind.textContent = `Wind Speed: ${wind} mph`;
                     }
-                    // }) 0 8 16 24 32
                 })
         });
 });
@@ -110,3 +116,19 @@ function findTime() {
 setInterval(findTime, 500);
 
 // Setting days on small boxes
+var day1 = document.getElementById('day-1');
+var day2 = document.getElementById('day-2');
+var day3 = document.getElementById('day-3');
+var day4 = document.getElementById('day-4');
+
+var getDay1 = dayjs().add(1, 'days').format('dddd, MMMM DD');
+day1.textContent = getDay1;
+
+var getDay2 = dayjs().add(2, 'days').format('dddd, MMMM DD');
+day2.textContent = getDay2;
+
+var getDay3 = dayjs().add(3, 'days').format('dddd, MMMM DD');
+day3.textContent = getDay3;
+
+var getDay4 = dayjs().add(4, 'days').format('dddd, MMMM DD');
+day4.textContent = getDay4;
