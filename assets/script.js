@@ -40,8 +40,7 @@ searchBtn.addEventListener('click', function (event) {
                     return response.json()
                 })
                 .then(data => {
-                    // THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed
-                    console.log(data)
+
                     // grab info from api
                     var todayIcon = data.list[0].weather[0].icon;
                     var currentTemp = data.list[0].main.temp;
@@ -52,7 +51,7 @@ searchBtn.addEventListener('click', function (event) {
                     // populate sections in html
                     // Add condition photo
                     var todayImg = document.getElementById('today-cond');
-                    todayImg.src = `http://openweathermap.org/img/wn/${todayIcon}@4x.png`;
+                    todayImg.src = `https://openweathermap.org/img/wn/${todayIcon}@4x.png`;
 
                     // Today Temperature
                     var todayTemp = document.getElementById('today-temp');
@@ -84,8 +83,8 @@ searchBtn.addEventListener('click', function (event) {
                         // populate sections in html
                         // Add condition photo
                         var iconImg = document.getElementById(`cond-day-${i}`);
-                        iconImg.src = `http://openweathermap.org/img/wn/${icon}@4x.png`;
-
+                        iconImg.src = `https://openweathermap.org/img/wn/${icon}@4x.png`;
+                        
                         // Add temp
                         var estTemp = document.getElementById(`temp-day-${i}`);
                         estTemp.textContent = `Temperature: ${temp}°F`;
