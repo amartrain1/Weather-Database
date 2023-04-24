@@ -2,7 +2,7 @@ var searchBtn = document.querySelector('#searchBtn')
 var searchInput = document.querySelector('#city-input')
 
 // API key
-var apiKey = '6b1ae97fcd991a8519a3c4d3bbe4d33e'
+var apiKey = '6b1ae97fcd991a8519a3c4d3bbe4d33e';
 
 // Empty array for cities
 var searchedCities = [];
@@ -11,8 +11,7 @@ var searchedCities = [];
 searchBtn.addEventListener('click', function (event) {
     event.preventDefault();
     var cityValue = searchInput.value;
-    searchedCities.push(cityValue)
-    console.log(searchedCities);
+    searchedCities.push(cityValue);
     localStorage.setItem('searchedCities', JSON.stringify(searchedCities));
     var cityText = document.getElementById('city');
     cityText.textContent = cityValue;
@@ -27,7 +26,6 @@ searchBtn.addEventListener('click', function (event) {
         .then(data => {
             var cityLat = data[0].lat;
             var cityLon = data[0].lon;
-            console.log(cityLat, cityLon);
             // call weather api
             fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${cityLat}&lon=${cityLon}&appid=${apiKey}&units=imperial`)
                 .then(function (response) {
@@ -39,7 +37,6 @@ searchBtn.addEventListener('click', function (event) {
                     console.log(data)
                     // grab info from api
                     var todayIcon = data.list[0].weather[0].icon;
-                    var currentCond = data.list[0].weather[0].main;
                     var currentTemp = data.list[0].main.temp;
                     var currentFeelsLike = data.list[0].main.feels_like;
                     var currentHumid = data.list[0].main.humidity;
@@ -49,10 +46,6 @@ searchBtn.addEventListener('click', function (event) {
                     // Add condition photo
                     var todayImg = document.getElementById('today-cond');
                     todayImg.src = `http://openweathermap.org/img/wn/${todayIcon}@4x.png`;
-
-                    // condition Text
-                    var todayCond = document.getElementById('today-cond-text')
-                    todayCond.textContent = `It is ${currentCond.toLowerCase()} today in ${cityValue}!`
 
                     // Today Temperature
                     var todayTemp = document.getElementById('today-temp');
@@ -73,12 +66,34 @@ searchBtn.addEventListener('click', function (event) {
                     // set text content
 
                     // next 5 days forecast (i + 8)
-                    for (i = 0; i < 41; i += 8) {
-                        var temp = data.list[0].main.temp;
-                        var feelsLike = data.list[0].main.feels_like;
-                        var humid = data.list[0].main.humidity;
-                        var wind = data.list[0].wind.speed;
+                    for (i = 8; i < 41; i += 8) {
+                        console.log(i)
+                        var icon = data.list[i].weather[0].icon;
+                        var temp = data.list[i].main.temp;
+                        var feelsLike = data.list[i].main.feels_like;
+                        var humid = data.list[i].main.humidity;
+                        var wind = data.list[i].wind.speed;
 
+                        // populate sections in html
+                        // Add condition photo
+                        var iconImg = document.getElementById(`cond-day-${i}`);
+                        iconImg.src = `http://openweathermap.org/img/wn/${icon}@4x.png`;
+
+                        // Add temp
+                        var estTemp = document.getElementById(`temp-day-${i}`);
+                        estTemp.textContent = `Temperature: ${temp}°F`;
+
+                        // Add feels like
+                        var estFeels = document.getElementById(`feels-day-${i}`);
+                        estFeels.textContent = `Feels Like: ${feelsLike}°F`;
+
+                        // Add Humidity
+                        var estHumid = document.getElementById(`humid-day-${i}`);
+                        estHumid.textContent = `Humidity: ${humid}%`;
+
+                        // Add wind speeds
+                        var estWind = document.getElementById(`wind-day-${i}`);
+                        estWind.textContent = `Wind Speed: ${wind} mph`;
                     }
                     // }) 0 8 16 24 32
                 })
@@ -93,3 +108,5 @@ function findTime() {
     currentTime.textContent = dayjs().format('h:mm:ss a');
 }
 setInterval(findTime, 500);
+
+// Setting days on small boxes

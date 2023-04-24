@@ -54,10 +54,33 @@ h2 {
     align-items: center;
 }
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Classes */
+
+.small-container {
+    border-style: double;
+    font-size: 3.25rem;
+    width: 20%;
+    margin: 1.5rem;
+    padding: 1.5rem;
+}
+
+.small-container img {
+    max-width: 30rem;
+}
+
+/* ID's */
+
 #form-city {
     text-align: center;
     font-size: 3rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
+    padding-right: .5rem;
 }
 
 #city-input {
@@ -80,16 +103,12 @@ h2 {
 
 #searchBtn:hover {
     cursor: pointer;
-    box-shadow: 0 0 11px rgba(33,33,33,.2);
+    box-shadow: 0 0 11px rgba(66, 66, 66, 0.2);
     transform: translateY(-.1rem);
-    transition: tranform 150ms;
+    transition: transform 150ms;
 }
 
 #searchBtn:active {
     transform: translateY(.1rem);
     transition: transform 150ms;
-}
-
-#today-cond-text {
-    font-size: 3.25rem;
 }
