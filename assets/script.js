@@ -24,7 +24,7 @@ searchBtn.addEventListener('click', function (event) {
     historyEl.textContent = cityValue;
     
     // call geocoding api
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityValue}&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityValue}&appid=${apiKey}`)
         // .then(response => response.json())
         .then(function (response) {
             console.log(response)
@@ -34,7 +34,7 @@ searchBtn.addEventListener('click', function (event) {
             var cityLat = data[0].lat;
             var cityLon = data[0].lon;
             // call weather api
-            fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${cityLat}&lon=${cityLon}&appid=${apiKey}&units=imperial`)
+            fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${cityLat}&lon=${cityLon}&appid=${apiKey}&units=imperial`)
                 .then(function (response) {
                     console.log(response)
                     return response.json()
